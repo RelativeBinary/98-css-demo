@@ -1,23 +1,29 @@
 import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import '98.css';
 
 function App() {
+  const [count, setCount] = React.useState(0);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ width: 300 }} className='window'>
+      <div className='title-bar'>
+        <div className='title-bar-text'>Counter</div>
+        <div className='title-bar-controls'>
+          <button aria-label='Minimize' />
+          <button aria-label='Maximize' />
+          <button aria-label='Close' />
+        </div>
+      </div>
+
+      <div className='window-body'>
+        <p style={{ textAlign: 'center' }}>Current count: {count}</p>
+        <div className='field-row' style={{ justifyContent: 'center' }}>
+          <button onClick={() => setCount(count + 1)}>+</button>
+          <button onClick={() => setCount(count - 1)}>-</button>
+          <button onClick={() => setCount(0)}>0</button>
+        </div>
+      </div>
     </div>
   );
 }
